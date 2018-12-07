@@ -1,0 +1,76 @@
+<div *ngIf="data" class="data-table">
+  <div *ngIf="false">
+    <input type="text" class="search" placeholder="Search for details">
+  </div>
+  <table>
+    <thead>
+    <tr>
+      <th style="width: 4%">&nbsp;</th>
+      <th style="width: 4%">#</th>
+      <th *ngFor="let header of data.headers"  style="text-align:left">{{header}}</th>
+      <th *ngIf="update">&nbsp;</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let row of data.data; let i = index">
+      <td><input type="checkbox" [checked]="checkAll" (change)="selected($event,row.id)"></td>
+      <td>{{ i+1 }}</td>
+      <td *ngFor="let attr of displayed" >{{row[attr]}}</td>
+      <td *ngIf="update" style="text-align:center">
+        <span (click)="showUpdate(row.id)">🖉</span>
+      </td>
+    </tr>
+
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+
+  <div class="footer">
+    <div class="delete">
+      <button (click)="deleteSelected()">Delete {{checked.length}} rows</button>
+    </div>
+
+    <div class="spacer">
+
+    </div>
+
+    <div class="data-pagination">
+      <select (change)="pageOnChange(device.value)" #device>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="100">100</option>
+      </select>
+      | Showing {{page}} of {{totalItems()}} |
+      <button class="link-button" (click)="previousPage()">Previous</button>
+      -
+      <button class="link-button" (click)="nextPage()">Next</button>
+    </div>
+  </div>
+
+
+  <div *ngIf="update && dialogue" class="update" (click)="closeDialogue()">
+
+    <div class="update-box" (click)="$event.stopPropagation()">
+      <h2>Edit the Row</h2>
+      <form #customForm="ngForm" novalidate (ngSubmit)="submitUpdateRow(dialogeData); closeDialogue()">
+        <div class="f-x">
+          <ng-container *ngFor="let attr of displayed; let i = index">
+            <div *ngIf="attr!='id' " class="f-y">
+              <label>{{data.headers[i]}}</label>
+              <input type="text" [value]="dialogeData[attr]" [placeholder]="attr" [name]="attr"
+                     [(ngModel)]="dialogeData[attr]">
+            </div>
+          </ng-container>
+        </div>
+        <footer>
+          <br>
+          <button type="submit">Update the row</button>
+          <button type="button" (click)="closeDialogue()">Cancel</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+</div>
