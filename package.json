@@ -1,6 +1,6 @@
 {
   "name": "angular-json-table",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "author": {
     "name": "Siv S",
     "email": "sivsivsree@gmail.com"
@@ -28,7 +28,7 @@
     "packagr": "ng-packagr -p ng-package.json"
   },
   "private": false,
-  "dependencies": {
+  "peerDependencies": {
     "@angular/animations": "^6.1.0",
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",

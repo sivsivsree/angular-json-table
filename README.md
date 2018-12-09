@@ -1,8 +1,8 @@
 # Angular JSON table module
 
-[![npm version](https://badge.fury.io/js/angular-json-table.svg)](https://badge.fury.io/js/angular-json-table)
-
 Angular JSON Table is an Angular 2+ module to populate tables from the JSON data provided
+
+[![npm version](https://badge.fury.io/js/angular-json-table.svg)](https://badge.fury.io/js/angular-json-table)
 
 # Features!
   - Pagination
@@ -16,17 +16,18 @@ Angular JSON Table is an Angular 2+ module to populate tables from the JSON data
 
 ### Installation
 
-Requires requires [Angular2+].
+Requires requires *Angular2+*.
 
-Install the module using npmm.
+Install the module using npm.
 
 ```sh
-$ cd my--angular-project
+$ cd my-angular2-project # Go to the project you are working on.
+# Install the module using the following.
 $ npm i angular-json-table --save
 ```
 
 In the *app.module.ts*
-Add ```DataTableModule``` to the ```imports```.
+Add ```JSONTableModule``` to the ```imports```.
 
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
@@ -54,8 +55,7 @@ export class AppModule { }
 Consider if you are having a json as the following:
 note: its Importent to have an unique feild named  ```id``` in the json data to use the *Delete* and *Update* features.
 
-```ts
-dataSource: any =
+```js
     [{
       'id': 20,
       'someFeild1': 'asdfasdf',
@@ -128,7 +128,7 @@ dataFromServer: any =
 ```(updateRow)``` : Callback to get the Updated, with the row object with ```id```<br>
 
 #### Run
-Run the angualr to test out the table implementation:
+Run the angular to test out the table implementation:
 ```sh
 $ ng serve
 ```
