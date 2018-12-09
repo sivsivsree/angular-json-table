@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
-  selector: 'data-table',
+  selector: 'json-table',
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.scss']
 })
@@ -61,15 +61,15 @@ export class DataTableComponent implements OnInit {
   paginate(page) {
     const start = (this.perpage * page) - this.perpage;
     const end = (this.perpage * page);
-    console.log(start, end);
+    // console.log(start, end);
     this.data['data'] = this.dataSource.slice(start, end);
-    console.log(this.data);
+    // console.log(this.data);
   }
 
   pageOnChange(perPage) {
     this.perpage = perPage;
     this.page = 1;
-    console.log(perPage);
+    //console.log(perPage);
     this.paginate(this.page);
   }
 
@@ -91,7 +91,7 @@ export class DataTableComponent implements OnInit {
 
   showUpdate(id: any) {
     this.dialogue = true;
-    console.log('Showing the updates');
+    // console.log('Showing the updates');
     this.data.data.forEach((value) => {
       if (value.id === id) {
         this.dialogeData = value;

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {DataTableModule} from './modules/data-table/data-table.module';
+import {JSONTableModule} from './modules/data-table/data-table.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,7 @@ import {DataTableModule} from './modules/data-table/data-table.module';
   ],
   imports: [
     BrowserModule,
-    DataTableModule
+    JSONTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

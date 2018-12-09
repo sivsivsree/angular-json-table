@@ -1,10 +1,10 @@
-import { DataTableModule } from './data-table.module';
+import { JSONTableModule } from './data-table.module';
 
 describe('DataTableModule', () => {
-  let dataTableModule: DataTableModule;
+  let dataTableModule: JSONTableModule;
 
   beforeEach(() => {
-    dataTableModule = new DataTableModule();
+    dataTableModule = new JSONTableModule();
   });
 
   it('should create an instance', () => {

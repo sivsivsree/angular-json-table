@@ -11,5 +11,5 @@ import {FormsModule} from '@angular/forms';
   declarations: [DataTableComponent],
   exports: [DataTableComponent]
 })
-export class DataTableModule {
+export class JSONTableModule {
 }

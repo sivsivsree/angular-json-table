@@ -1,7 +1,23 @@
 {
-  "name": "angular-data-table",
-  "version": "0.0.1",
-  "author": "Siv S <sivsivsree@gmail.com>",
+  "name": "angular-json-table",
+  "version": "0.0.2",
+  "author": {
+    "name": "Siv S",
+    "email": "sivsivsree@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "json",
+    "table",
+    "angular2",
+    "json-table",
+    "data-table"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sivsivsree/angular-json-table.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -12,7 +28,7 @@
     "packagr": "ng-packagr -p ng-package.json"
   },
   "private": false,
-  "peerDependencies": {
+  "dependencies": {
     "@angular/animations": "^6.1.0",
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
