@@ -126,13 +126,13 @@ dataFromServer: any =
 ```
 ### Properties
 ##### Inputs
-```[dataSource] ``` : The JSON data input 
-```[headers]``` : The Headers need to render the Table
-```[update]```: Booelan ```true``` to Enable data modification / ```false``` to disable
+```[dataSource] ``` : The JSON data input <br>
+```[headers]``` : The Headers need to render the Table <br>
+```[update]```: Booelan ```true``` to Enable data modification / ```false``` to disable.<br>
 
 ##### Output
-```(deleteRow)``` :  Callback to delete the Row, with the array of `[ids]`
-```(updateRow)``` : Callback to get the Updated, with the row object with ```id```
+```(deleteRow)``` :  Callback to delete the Row, with the array of `[ids]`<br>
+```(updateRow)``` : Callback to get the Updated, with the row object with ```id```<br>
 
 #### Run
 Run the angualr to test out the table implementation:
