@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/angular-json-table.svg)](https://badge.fury.io/js/angular-json-table)
 
-Angular JSON Table is an Angular 2+ module to populate tables from the data provided
+Angular JSON Table is an Angular 2+ module to populate tables from the JSON data provided
 
 # Features!
   - Pagination
@@ -11,13 +11,6 @@ Angular JSON Table is an Angular 2+ module to populate tables from the data prov
   - Table header customizations
   - Display only needed data than the whole JSON
 
-
-
-### Tech
-
-Angular JOSN Table uses a number of open source projects to work properly:
-
-* [Angular2+] - HTML enhanced for web apps!
 
 
 
