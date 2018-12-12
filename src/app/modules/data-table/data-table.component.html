@@ -5,7 +5,7 @@
   <table>
     <thead>
     <tr>
-      <th style="width: 4%">&nbsp;</th>
+      <th *ngIf="delete" style="width: 4%">&nbsp;</th>
       <th style="width: 4%">#</th>
       <th *ngFor="let header of data.headers"  style="text-align:left">{{header}}</th>
       <th *ngIf="update">&nbsp;</th>
@@ -13,8 +13,8 @@
     </thead>
     <tbody>
 
-    <tr *ngFor="let row of data.data; let i = index">
-      <td><input type="checkbox" [checked]="checkAll" (change)="selected($event,row.id)"></td>
+    <tr *ngFor="let row of data.data; let i = index" (click)="fireRowClick(row)">
+      <td *ngIf="delete"><input type="checkbox" [checked]="checkAll" (change)="selected($event,row.id)"></td>
       <td>{{ i+1 }}</td>
       <td *ngFor="let attr of displayed" >{{row[attr]}}</td>
       <td *ngIf="update" style="text-align:center">
@@ -27,7 +27,7 @@
   </table>
 
   <div class="footer">
-    <div class="delete">
+    <div *ngIf="delete" class="delete">
       <button (click)="deleteSelected()">Delete {{checked.length}} rows</button>
     </div>
 

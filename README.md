@@ -1,6 +1,6 @@
 # Angular JSON table module
 
-Angular JSON Table is an Angular 2+ module to populate tables from the JSON data provided
+Angular JSON Table is an Angular 4+ module to populate tables from the JSON data provided
 
 [![npm version](https://badge.fury.io/js/angular-json-table.svg)](https://badge.fury.io/js/angular-json-table)
 
@@ -52,25 +52,6 @@ export class AppModule { }
 
 ### Usage
 
-Consider if you are having a json as the following:
-note: its Importent to have an unique feild named  ```id``` in the json data to use the *Delete* and *Update* features.
-
-```js
-    [{
-      'id': 20,
-      'someFeild1': 'asdfasdf',
-      'someFeild2': 'asdf',
-      'someFeild3': 'asdfasdfasfasdfa',
-      },
-      ....
-     {
-      'id': 81,
-      'someFeild1': 'aasdfsdf',
-      'someFeild2': 'asasdfdf',
-      'someFeild3': 'dfasfasdfa',
-      }, 
-    ]
-```
 
 In your ```custom.component.html``` add ```data-table``` to render the table from the JSON
 
@@ -79,6 +60,8 @@ In your ```custom.component.html``` add ```data-table``` to render the table fro
       [dataSource]="dataFromServer"
       [headers]="customHeaders"
       [update]="true/false"
+      [delete]="true/false"
+      (selectRow)="selectedRow($event)"
       (deleteRow)="deleteByIdS($event)"
       (updateRow)="updateChanges($event)"></json-table>
 ```
@@ -109,6 +92,10 @@ dataFromServer: any =
       }, 
     ];
     
+    deleteByIdS(row){
+        console.log(row); // Returns the row which is selected by clicking.
+     }
+     
     deleteByIdS(ids){
         console.log(id); // this function gives the ID of deleted rows.. as an array
     }
@@ -117,15 +104,40 @@ dataFromServer: any =
         console.log(row); // This return the row which is updated with the id.
     }
 ```
+
+Consider if you are having a json as the following:<br>
+**Note:** its Importent to have an unique feild named  ```id``` in the json data to use the *Delete* and *Update* features.
+
+```js
+    [{
+      'id': 20,
+      'someFeild1': 'asdfasdf',
+      'someFeild2': 'asdf',
+      'someFeild3': 'asdfasdfasfasdfa',
+      },
+      ....
+     {
+      'id': 81,
+      'someFeild1': 'aasdfsdf',
+      'someFeild2': 'asasdfdf',
+      'someFeild3': 'dfasfasdfa',
+      }, 
+    ]
+```
+
 ### Properties
 ##### Inputs
 ```[dataSource] ``` : The JSON data input <br>
 ```[headers]``` : The Headers need to render the Table <br>
 ```[update]```: Booelan ```true``` to Enable data modification / ```false``` to disable.<br>
+```[update]```: Booelan ```true``` to Enable row deletion / ```false``` to disable.<br>
 
 ##### Output
-```(deleteRow)``` :  Callback to delete the Row, with the array of `[ids]`<br>
+
+```(selectRow)``` : Callback when a row is selected , returns the row object with ```id```<br>
+```(deleteRow)``` : Callback to delete the Row, with the array of `[ids]`<br>
 ```(updateRow)``` : Callback to get the Updated, with the row object with ```id```<br>
+
 
 #### Run
 Run the angular to test out the table implementation:
