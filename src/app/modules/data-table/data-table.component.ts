@@ -10,9 +10,11 @@ export class DataTableComponent implements OnInit {
   @Input() dataSource: any;
   @Input() headers: any;
   @Input() update: boolean;
+  @Input() delete: boolean;
 
   @Output() deleteRow: EventEmitter<any> = new EventEmitter<any>();
   @Output() updateRow: EventEmitter<any> = new EventEmitter<any>();
+  @Output() selectRow: EventEmitter<any> = new EventEmitter<any>();
 
   data: any = {};
 
@@ -124,8 +126,12 @@ export class DataTableComponent implements OnInit {
     } else {
       console.warn('No data for table provided');
     }
+  }
 
-
+  fireRowClick(row) {
+    if (row) {
+      this.selectRow.emit(row);
+    }
   }
 }
 
