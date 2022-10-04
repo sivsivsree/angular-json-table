@@ -7,6 +7,8 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 
+  title: string = "angular-data-table";
+
   headers: any = {
     thead: ['dID', 'NAME', 'ADDRESS', 'REF'],
     displayed: ['id', 'supplierName', 'supplierAddress', 'supplierReference']
@@ -497,5 +499,13 @@ export class AppComponent {
       'modifyBy': null,
       'modifyDate': null
     }];
+
+    deleteByIdS(row){
+        console.log(row); // Returns the row which is selected by clicking.
+     }
+    
+    updateChanges(row){
+        console.log(row); // This return the row which is updated with the id.
+    }
 
 }
